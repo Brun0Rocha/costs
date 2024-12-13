@@ -1,12 +1,23 @@
 {
   "projects": [
     {
-      "id": "634c",
-      "name": "Teste",
-      "budget": "8000",
+      "id": "ad9f",
+      "name": "Novo Project",
+      "budget": "50000",
       "category": {
-        "id": "5",
-        "name": "Segurança"
+        "id": "4",
+        "name": "Planejamento"
+      },
+      "cost": 0,
+      "services": []
+    },
+    {
+      "id": "2709",
+      "name": "Teste",
+      "budget": "80000",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
       },
       "cost": 0,
       "services": []
@@ -14,23 +25,23 @@
   ],
   "categories": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Infra"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Desenvolvimento"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Design"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Planejamento"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Segurança"
     }
   ]
