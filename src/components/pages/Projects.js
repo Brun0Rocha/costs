@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 
 import Message from "../layout/Message"
 import Container from "../layout/Container"
+import Loading from "../layout/Loading"
 import LinkButton from '../layout/LinkButton'
 import ProjectCard from '../project/ProjectCard'
 import styles from './Projects.module.css'
@@ -10,6 +11,7 @@ import styles from './Projects.module.css'
 function Projcts() {
     const [projects, setProjects] = useState([])
     const [projectMessage, setProjectMessage] = useState('')
+    const [removeLoading, setRemoveLoading] = useState(false)
 
     const location = useLocation()
     let message = ''
@@ -18,19 +20,21 @@ function Projcts() {
     }
 
     useEffect(() => {
-
-        fetch('http://localhost:5000/projects', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-            .then((resp) => resp.json())
-            .then((data) => {
-                console.log(data)
-                setProjects(data)
+        setTimeout(() => {
+            fetch('http://localhost:5000/projects', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
             })
-            .catch((err) => console.log(err))
+                .then((resp) => resp.json())
+                .then((data) => {
+                    console.log(data)
+                    setProjects(data)
+                    setRemoveLoading(true)
+                })
+                .catch((err) => console.log(err))
+        }, 300)
     }, [])
 
     function removeProject(id) {
@@ -69,6 +73,10 @@ function Projcts() {
                         handleRemove={removeProject}
                         />
                     ))
+                }
+                {!removeLoading && <Loading />}
+                {removeLoading && projects.length === 0 &&
+                    <h4>Não há projetos cadastrados!</h4>
                 }
             </Container>
         </div>
