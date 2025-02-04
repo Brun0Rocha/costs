@@ -1,6 +1,4 @@
 import styles from './Container.module.css'
-import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
-
 
 function Container(props) {
 
