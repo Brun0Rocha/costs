@@ -8,6 +8,7 @@ import LinkButton from '../layout/LinkButton'
 import ProjectCard from '../project/ProjectCard'
 import styles from './Projects.module.css'
 
+
 function Projcts() {
     const [projects, setProjects] = useState([])
     const [projectMessage, setProjectMessage] = useState('')
@@ -21,7 +22,7 @@ function Projcts() {
 
     useEffect(() => {
         setTimeout(() => {
-            fetch('http://localhost:5000/projects', {
+            fetch('https://costs-server-642c2d589815.herokuapp.com/projects', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -39,7 +40,7 @@ function Projcts() {
 
     function removeProject(id) {
 
-        fetch(`http://localhost:5000/projects/${id}`, {
+        fetch(`https://costs-server-642c2d589815.herokuapp.com/projects/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
